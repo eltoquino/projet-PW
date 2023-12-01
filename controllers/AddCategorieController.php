@@ -11,7 +11,7 @@ class AddCategorieController
     public function index()
     {
         // Inclure la vue pour afficher le formulaire d'ajout de catégorie
-        include('../views/add_categorie.php');
+        include('views/add_categorie.php');
     }
 
     public function addCategorie()
@@ -36,19 +36,7 @@ class AddCategorieController
                 echo "Erreur lors de l'ajout de la catégorie.";
             }
         }
-        include('../views/add_categorie.php');
+        include('views/add_categorie.php');
     }
 }
-
-require_once("../config/config.php");
-require_once("../classes/models/CategorieModel.php");
-require_once("../classes/dao/CategorieDAO.php");
-
-$categorieDAO = new CategorieDAO($pdo);
-$controller = new AddCategorieController($categorieDAO);
-
-if (!isset($_POST['action'])) {
-    $controller->index();
-} else {
-    $controller->addCategorie();
-}
+?>
