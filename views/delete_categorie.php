@@ -1,23 +1,19 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Supprimer une Catégorie</title>
-    <!-- Ajoutez ici vos liens CSS ou styles pour la mise en forme -->
-    <link rel="stylesheet" href="../styles/style.css">
-</head>
-<body>
-    <h1>Supprimer une Catégorie</h1>
+<? ob_start() ?>
 
-    <?php if (isset($message)): ?>
-        <p><?php echo $message; ?></p>
-    <?php else: ?>
-        <p>Êtes-vous sûr de vouloir supprimer cette catégorie ?</p>
-        <form action="DeleteCategorieController.php" method="get">
-            <input type="hidden" name="id" value="<?php echo $categorieId; ?>">
-            <input type="submit" value="Oui, Supprimer">
+
+<h1>Supprimer un Contact</h1>
+    <a href="index.php?page=home">Retour à la liste des contacts</a>
+
+    <?php if ($categorie): ?>
+        <p>Voulez-vous vraiment supprimer la categorie "<?php echo $categorie->getNom(); ?> <?php echo $categorie->getCode(); ?>" ?</p>
+        <form action="index.php?page=delete&action=deleteCategorie&id=<?php echo $categorie->getId(); ?>" method="post">
+            <input type="submit" value="Supprimer" class="btn btn-warning">
         </form>
-        <a href="HomeController.php">Non, Annuler</a>
+    <?php else: ?>
+        <p>Le contact n'a pas été trouvé.</p>
     <?php endif; ?>
-</body>
-</html>
+
+<?php
+$content = ob_get_clean();
+require "template.php";
+?>

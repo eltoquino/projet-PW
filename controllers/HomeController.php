@@ -14,7 +14,7 @@ class HomeController
         $categories = $this->categorieDAO->getAll();
 
         // Inclure la vue pour afficher la liste des catégories
-        include('views/home.php');
+        include('views/home_categorie.php');
     }
 }
 

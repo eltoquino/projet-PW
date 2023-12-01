@@ -1,6 +1,7 @@
 <?php ob_start() ?>
 
 <?php if (count($categories) > 0) : ?>
+    <a href="index.php?page=template">Retour au menu principale</a>
     <h1>Toutes les catégories</h1>
 
     <table class="table text-center">
@@ -23,6 +24,7 @@
     <a href="index.php?page=add" class="btn btn-success d-block">Ajouter</a>
 <?php else : ?>
     <p>Aucune catégorie trouvée.</p>
+    <a href="index.php?page=add" class="btn btn-success d-block">Ajouter</a>
 <?php endif; ?>
 
 
