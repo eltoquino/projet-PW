@@ -11,7 +11,6 @@ class EditCategorieController {
         $categorie = $this->categorieDAO->getById($categorieId);
 
         if (!$categorie) {
-            // La catégorie n'a pas été trouvée, vous pouvez rediriger ou afficher un message d'erreur
             echo "La catégorie n'a pas été trouvée.";
             return;
         }

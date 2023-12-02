@@ -1,8 +1,6 @@
 <?php
-
-class CategorieDAO
+class LicencieDAO
 {
-
     private $pdo;
 
     public function __construct(PDO $pdo)
@@ -10,83 +8,73 @@ class CategorieDAO
         $this->pdo = $pdo;
     }
 
-
-    public function create(CategorieModel $categorie)
+    public function create(LicencieModel $licencie)
     {
         try {
-            $query ="INSERT INTO Categories (nom, code) VALUES (?, ?)";
+            $query = "INSERT INTO Licencies (numero_licence, nom, prenom, contact_id, categorie_id) VALUES (?, ?, ?, ?, ?)";
             $stmt = $this->pdo->prepare($query);
-            $stmt->execute([$categorie->getNom(), $categorie->getCode()]);
+            $stmt->execute([$licencie->getNumeroLicence(), $licencie->getNom(), $licencie->getPrenom(), $licencie->getContactId(), $licencie->getCategorieId()]);
             return true;
         } catch (PDOException $e) {
-
             return false;
         }
     }
 
-
     public function getById($id)
     {
         try {
-            $query = "SELECT * FROM Categories WHERE id = ?";
+            $query = "SELECT * FROM Licencies WHERE id = ?";
             $stmt = $this->pdo->prepare($query);
             $stmt->execute([$id]);
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($row) {
-                return new CategorieModel($row['id'], $row['nom'], $row['code']);
+                return new LicencieModel($row['numero_licence'], $row['nom'], $row['prenom'], $row['contact_id'], $row['categorie_id']);
             } else {
                 return null;
             }
         } catch (PDOException $e) {
-
             return null;
         }
     }
 
-
     public function getAll()
     {
         try {
-            $query = "SELECT * FROM Categories";
+            $query = "SELECT * FROM Licencies";
             $stmt = $this->pdo->query($query);
-            $categorie = [];
+            $licencies = [];
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $categorie[] = new CategorieModel($row['id'], $row['nom'], $row['code']);
+                $licencies[] = new LicencieModel($row['numero_licence'], $row['nom'], $row['prenom'], $row['contact_id'], $row['categorie_id']);
             }
 
-            return $categorie;
+            return $licencies;
         } catch (PDOException $e) {
-
             return [];
         }
     }
 
-
-    public function update(CategorieModel $categorie)
+    public function update(LicencieModel $licencie)
     {
         try {
-            $query = "UPDATE Categories SET nom = ?, code = ? WHERE id = ?";
+            $query = "UPDATE Licencies SET numero_licence = ?, nom = ?, prenom = ?, contact_id = ?, categorie_id = ? WHERE id = ?";
             $stmt = $this->pdo->prepare($query);
-            $stmt->execute([$categorie->getNom(), $categorie->getCode(), $categorie->getId()]);
+            $stmt->execute([$licencie->getNumeroLicence(), $licencie->getNom(), $licencie->getPrenom(), $licencie->getContactId(), $licencie->getCategorieId(), $licencie->getId()]);
             return true;
         } catch (PDOException $e) {
-
             return false;
         }
     }
 
-
     public function deleteById($id)
     {
         try {
-            $query = "DELETE FROM Categories WHERE id = ?";
+            $query = "DELETE FROM Licencies WHERE id = ?";
             $stmt = $this->pdo->prepare($query);
             $stmt->execute([$id]);
             return true;
         } catch (PDOException $e) {
-
             return false;
         }
     }

@@ -1,7 +1,7 @@
 <?php ob_start() ?>
 
 <h1>Modifier une Catégorie</h1>
-<a href="index.php?page=home">Retour à la liste des catégories</a>
+<a href="index.php?page=homecat">Retour à la liste des catégories</a>
 
 <?php if ($categorie) : ?>
     <form action="index.php?action=editCategorie&page=edit&id=<?php echo $categorie->getId(); ?>" method="post">

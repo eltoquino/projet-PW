@@ -2,7 +2,7 @@
 
 
 <h1>Supprimer un Contact</h1>
-    <a href="index.php?page=home">Retour à la liste des contacts</a>
+    <a href="index.php?page=homecat">Retour à la liste des contacts</a>
 
     <?php if ($categorie): ?>
         <p>Voulez-vous vraiment supprimer la categorie "<?php echo $categorie->getNom(); ?> <?php echo $categorie->getCode(); ?>" ?</p>

@@ -1,7 +1,7 @@
 <? ob_start() ?>
 
 <h1>Ajouter une Categorie</h1>
-    <a href="index.php?page=home">Retour à la liste des categories</a>
+    <a href="index.php?page=homecat">Retour à la liste des categories</a>
 
     <form action="index.php?page=add&action=addCategorie" method="post">
 

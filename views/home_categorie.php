@@ -15,8 +15,9 @@
                 <td><?php echo $categorie->getNom(); ?></td>
                 <td><?php echo $categorie->getCode(); ?></td>
                 <td>
-                    <button type="button" class="btn btn-warning"> <a class="align-middle" href="index.php?page=edit&action=editCategorie&id=<?php echo $categorie->getId(); ?>">Modifier</a></button>
-                    <button type="button" class="btn btn-danger"> <a class="align-middle"  href="index.php?page=delete&action=deleteCategorie&id=<?php echo $categorie->getId(); ?>">Supprimer</a>
+                    <a class="btn btn-info" href="index.php?action=viewCategorie&page=view&id=<?php echo $categorie->getId(); ?>"> Voir </a>
+                    <a class="btn btn-warning" href="index.php?page=edit&action=editCategorie&id=<?php echo $categorie->getId(); ?>">Modifier</a>
+                    <a class="btn btn-danger" href="index.php?page=delete&action=deleteCategorie&id=<?php echo $categorie->getId(); ?>">Supprimer</a>
                 </td>
             </tr>
         <?php endforeach; ?>

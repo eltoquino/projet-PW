@@ -21,12 +21,12 @@ else {
 $action = 'index'; 
 }
 $controllers = [
-'home' => 'HomeController',
+'homecat' => 'HomeController',
+'view' => 'ViewsCategorieController',
 'add' => 'AddCategorieController',
 'delete' => 'DeleteCategorieController',
 'edit' => 'EditCategorieController',
-'template' => 'TemplateController'
-
+'template' => 'TemplateController',
 ];
 
 
