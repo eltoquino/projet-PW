@@ -21,7 +21,7 @@ else {
 $action = 'index'; 
 }
 $controllers = [
-'homecat' => 'HomeController',
+'homecat' => 'HomeCategorieController',
 'view' => 'ViewsCategorieController',
 'add' => 'AddCategorieController',
 'delete' => 'DeleteCategorieController',

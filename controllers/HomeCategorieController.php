@@ -1,5 +1,5 @@
 <?php
-class HomeController
+class HomeCategorieController
 {
     private $categorieDAO;
 
