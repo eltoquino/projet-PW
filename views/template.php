@@ -24,7 +24,7 @@
                         <a class="nav-link active" href="#">Licencié</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Contact</a>
+                        <a class="nav-link active" href="index_contact.php?page=homecontact">Contact</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Educateur</a>
