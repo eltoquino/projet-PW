@@ -18,7 +18,7 @@ class AddCategorieController {
 
             $nouvelleCategorie = new CategorieModel(0,$nom, $code,);
             if ($this->categorieDAO->create($nouvelleCategorie)) {
-                header('Location:index.php?page=home');
+                header('Location:index.php?page=homecat');
                 exit();
             } else {
                 echo "Erreur lors de l'ajout de la categorie.";
