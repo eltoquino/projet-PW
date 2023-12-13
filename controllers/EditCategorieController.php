@@ -36,7 +36,7 @@ class EditCategorieController {
 
             if ($resultatMiseAJour) {
                 // Rediriger vers la page de détails de la catégorie après la modification
-                header('Location:index.php?page=home');
+                header('Location:index.php?page=homecat');
                 exit();
             } else {
                 // Gérer les erreurs de mise à jour de la catégorie
@@ -45,7 +45,7 @@ class EditCategorieController {
         }
 
         // Inclure la vue pour afficher le formulaire de modification de la catégorie
-        include('views/edit_categorie.php');
+        include('views/categorie/edit_categorie.php');
     }
 }
 ?>

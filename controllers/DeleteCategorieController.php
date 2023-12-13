@@ -19,14 +19,14 @@ class DeleteCategorieController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($this->categorieDAO->deleteById($categorieId)) {
                 // Rediriger vers la page d'accueil après la suppression
-                header('Location:index.php?page=home');
+                header('Location:index.php?page=homecat');
                 exit();
             } else {
                 echo "Erreur lors de la suppression de la categorie.";
             }
         }
 
-        include('views/delete_categorie.php');
+        include('views/categorie/delete_categorie.php');
     }
 }
 

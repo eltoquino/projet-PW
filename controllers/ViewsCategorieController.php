@@ -10,7 +10,7 @@ class ViewsCategorieController {
     public function viewCategorie($categorieId) {
         $categorie = $this->categorieDAO->getById($categorieId);
 
-        include('views/view_categorie.php');
+        include('views/categorie/view_categorie.php');
     }
 }
 

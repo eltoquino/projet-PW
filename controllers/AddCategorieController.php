@@ -7,7 +7,7 @@ class AddCategorieController {
     }
 
     public function index() {
-        include('views/add_categorie.php'); 
+        include('views/categorie/add_categorie.php'); 
     }
     
     public function addCategorie() {
@@ -18,14 +18,14 @@ class AddCategorieController {
 
             $nouvelleCategorie = new CategorieModel(0,$nom, $code,);
             if ($this->categorieDAO->create($nouvelleCategorie)) {
-                header('Location:index.php?page=home');
+                header('Location:index.php?page=homecat');
                 exit();
             } else {
                 echo "Erreur lors de l'ajout de la categorie.";
             }
         }
 
-        include('views/add_categorie.php');
+        include('views/categorie/add_categorie.php');
     }
 }
 ?>
