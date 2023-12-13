@@ -26,7 +26,7 @@ class DeleteCategorieController
             }
         }
 
-        include('views/delete_categorie.php');
+        include('views/categorie/delete_categorie.php');
     }
 }
 

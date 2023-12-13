@@ -7,7 +7,7 @@ class AddCategorieController {
     }
 
     public function index() {
-        include('views/add_categorie.php'); 
+        include('views/categorie/add_categorie.php'); 
     }
     
     public function addCategorie() {
@@ -25,7 +25,7 @@ class AddCategorieController {
             }
         }
 
-        include('views/add_categorie.php');
+        include('views/categorie/add_categorie.php');
     }
 }
 ?>
