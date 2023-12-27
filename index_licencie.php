@@ -1,24 +1,18 @@
 <?php
 
 require_once("config/config.php");
-require_once("classes/models/CategorieModel.php");
-require_once("classes/dao/CategorieDAO.php");
-$categorieDAO=new CategorieDAO($pdo);
-
-
 require_once("classes/models/LicencieModel.php");
 require_once("classes/dao/LicencieDAO.php");
 $licencieDAO=new LicencieDAO($pdo);
-
-
 
 require_once("classes/models/ContactModel.php");
 require_once("classes/dao/ContactDAO.php");
 $contactDAO=new ContactDAO($pdo);
 
 
-
-
+require_once("classes/models/CategorieModel.php");
+require_once("classes/dao/CategorieDAO.php");
+$categorieDAO=new CategorieDAO($pdo);
 
 
 
@@ -36,12 +30,11 @@ else {
 $action = 'index'; 
 }
 $controllers = [
-'homecat' => 'HomeCategorieController',
-'homecontact' => 'HomeContactController',
-'view' => 'ViewsContactController',
-'add' => 'AddContactController',
-'delete' => 'DeleteContactController',
-'edit' => 'EditContactController',
+'homelicencie' => 'HomeLicencieController',
+'view' => 'ViewsLicencieController',
+'add' => 'AddLicencieController',
+'delete' => 'DeleteLicencieController',
+'edit' => 'EditLicencieController',
 'template' => 'TemplateController',
 ];
 
@@ -49,10 +42,12 @@ $controllers = [
 if (array_key_exists($page, $controllers)) {
 $controllerName = $controllers[$page];
 
-require_once('controllers/contact/' . $controllerName . '.php');
+require_once('controllers/licencie/' . $controllerName . '.php');
 
-  
-$controller = new $controllerName($contactDAO,$licencieDAO);
+ 
+ 
+
+$controller = new $controllerName($categorieDAO,$licencieDAO,$contactDAO);
 
 $controller->$action(isset($_GET['id'])?$_GET['id'] : null); 
 } else {

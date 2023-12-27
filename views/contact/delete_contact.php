@@ -2,11 +2,11 @@
 
 
 <h1>Supprimer un Contact</h1>
-    <a href="index.php?page=homecat">Retour à la liste des contacts</a>
+    <a href="index_contact.php?page=homecontact">Retour à la liste des contacts</a>
 
-    <?php if ($categorie): ?>
-        <p>Voulez-vous vraiment supprimer la categorie "<?php echo $categorie->getNom(); ?> <?php echo $categorie->getCode(); ?>" ?</p>
-        <form action="index.php?page=delete&action=deleteCategorie&id=<?php echo $categorie->getId(); ?>" method="post">
+    <?php if ($contact): ?>
+        <p>Voulez-vous vraiment supprimer ce contact "<?php echo $contact->getNom(); ?> <?php echo $contact->getPrenom(); ?>" ?</p>
+        <form action="index_contact.php?page=delete&action=deleteContact&id=<?php echo $contact->getId(); ?>" method="post">
             <input type="submit" value="Supprimer" class="btn btn-warning">
         </form>
     <?php else: ?>
@@ -15,5 +15,5 @@
 
 <?php
 $content = ob_get_clean();
-require "template.php";
+require (getcwd()."/views/template.php");
 ?>

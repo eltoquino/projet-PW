@@ -11,7 +11,7 @@
             </div>
             <div class="form-group">
                 <label for="nom">Nom :</label>
-                <input type="text" class="form-control" id="nom" name="nom" value="<?php echo $categorie->getNom(); ?>" required>
+                <input type="text" class="form-control form-control-normal" id="nom" name="nom" value="<?php echo $categorie->getNom(); ?>" required>
             </div>
             <div class="form-group">
                 <label for="nom">Code :</label>

@@ -53,6 +53,12 @@ class ContactModel
         return $this->prenom;
     }
 
+    public function getLibelleContact()
+    {
+
+        return $this->nom.' '.$this->prenom;
+    }
+
 
 
     public function getEmail()

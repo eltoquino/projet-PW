@@ -10,6 +10,11 @@ require_once("classes/dao/ContactDAO.php");
 $contactDAO=new ContactDAO($pdo);
 
 
+require_once("classes/models/LicencieModel.php");
+require_once("classes/dao/LicencieDAO.php");
+$licencieDAO=new LicencieDAO($pdo);
+
+
 
 
 
@@ -42,11 +47,9 @@ $controllers = [
 if (array_key_exists($page, $controllers)) {
 $controllerName = $controllers[$page];
 
-require_once('controllers/' . $controllerName . '.php');
+require_once('controllers/categorie/' . $controllerName . '.php');
 
  
- 
-
 $controller = new $controllerName($categorieDAO);
 
 $controller->$action(isset($_GET['id'])?$_GET['id'] : null); 

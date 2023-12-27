@@ -5,7 +5,7 @@ $database = "projet";
 $username = "root"; 
 $password = ""; 
 
-
+$pdo=null;
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$database", $username, $password);
     

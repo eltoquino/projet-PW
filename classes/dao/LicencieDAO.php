@@ -7,13 +7,15 @@ class LicencieDAO
     {
         $this->pdo = $pdo;
     }
-
+ 
     public function create(LicencieModel $licencie)
     {
         try {
+          
             $query = "INSERT INTO Licencies (numero_licence, nom, prenom, contact_id, categorie_id) VALUES (?, ?, ?, ?, ?)";
             $stmt = $this->pdo->prepare($query);
-            $stmt->execute([$licencie->getNumeroLicence(), $licencie->getNom(), $licencie->getPrenom(), $licencie->getContactId(), $licencie->getCategorieId()]);
+            $stmt->execute([$licencie->getNumeroLicence(), $licencie->getNom(), $licencie->getPrenom(), $licencie->getContactId(), $licencie->getCategorieId()
+           ]);
             return true;
         } catch (PDOException $e) {
             return false;
@@ -23,13 +25,18 @@ class LicencieDAO
     public function getById($id)
     {
         try {
-            $query = "SELECT * FROM Licencies WHERE id = ?";
+            $query = "SELECT lc.id,lc.numero_licence,lc.nom,lc.prenom,lc.contact_id,lc.categorie_id,
+            ct.nom nomcontact,ct.prenom prenomcontact,ct.email emailcontact,ct.numero_tel telcontact,
+            categ.nom nomcateg,categ.code codecateg
+            FROM licencies lc  join contacts ct on lc.contact_id=ct.id  join categories categ on lc.categorie_id=categ.id
+             WHERE lc.id = ?";
             $stmt = $this->pdo->prepare($query);
             $stmt->execute([$id]);
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($row) {
-                return new LicencieModel($row['numero_licence'], $row['nom'], $row['prenom'], $row['contact_id'], $row['categorie_id']);
+                return new LicencieModel($row['id'],$row['numero_licence'], $row['nom'], $row['prenom'], $row['contact_id'], $row['categorie_id'],
+                $row['nomcontact'],$row['prenomcontact'], $row['emailcontact'], $row['telcontact'], $row['nomcateg'], $row['codecateg']);
             } else {
                 return null;
             }
@@ -41,12 +48,16 @@ class LicencieDAO
     public function getAll()
     {
         try {
-            $query = "SELECT * FROM Licencies";
+            $query = "SELECT lc.id,lc.numero_licence,lc.nom,lc.prenom,lc.contact_id,lc.categorie_id,
+            ct.nom nomcontact,ct.prenom prenomcontact,ct.email emailcontact,ct.numero_tel telcontact,
+            categ.nom nomcateg,categ.code codecateg
+            FROM licencies lc  join contacts ct on lc.contact_id=ct.id  join categories categ on lc.categorie_id=categ.id";
             $stmt = $this->pdo->query($query);
             $licencies = [];
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $licencies[] = new LicencieModel($row['numero_licence'], $row['nom'], $row['prenom'], $row['contact_id'], $row['categorie_id']);
+                $licencies[] = new LicencieModel($row['id'],$row['numero_licence'], $row['nom'], $row['prenom'], $row['contact_id'], $row['categorie_id'],
+                $row['nomcontact'],$row['prenomcontact'], $row['emailcontact'], $row['telcontact'], $row['nomcateg'], $row['codecateg']);
             }
 
             return $licencies;
@@ -71,6 +82,18 @@ class LicencieDAO
     {
         try {
             $query = "DELETE FROM Licencies WHERE id = ?";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute([$id]);
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    public function deleteByContactId($id)
+    {
+        try {
+            $query = "DELETE FROM Licencies WHERE contact_id = ?";
             $stmt = $this->pdo->prepare($query);
             $stmt->execute([$id]);
             return true;
