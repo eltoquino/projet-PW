@@ -87,6 +87,8 @@ class CategorieDAO
             return true;
         } catch (PDOException $e) {
 
+             
+
             return false;
         }
     }

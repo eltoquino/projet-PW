@@ -242,7 +242,7 @@
                                   <ul class="pcoded-submenu">
                                       <li class=" ">
                                       
-                                          <a href="index.php?page=homecat" class="waves-effect waves-dark">
+                                          <a href="index.php?page=homecategorie" class="waves-effect waves-dark">
                                               <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                               <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Categories</span>
                                               <span class="pcoded-mcaret"></span>
@@ -270,7 +270,7 @@
                           <div class="pcoded-navigation-label" data-i18n="nav.category.forms">Operations</div>
                           <ul class="pcoded-item pcoded-left-item">
                               <li>
-                                  <a href="form-elements-component.html" class="waves-effect waves-dark">
+                              <a href="index_educateur.php?page=homeeducateur" class="waves-effect waves-dark">
                                       <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                       <span class="pcoded-mtext" data-i18n="nav.form-components.main">Educateurs</span>
                                       <span class="pcoded-mcaret"></span>

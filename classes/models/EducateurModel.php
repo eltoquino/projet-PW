@@ -1,36 +1,36 @@
 <?php
 
-class EducateurModel  extends LicencieModel
+class EducateurModel   
 {
 
     private $id;
 
-    private $nom;
-
-    private $prenom;
-
     private $email;
 
-    private $telephone;
+    private $isAdmin;
 
-    private $password;
+    private $motDePasse;
+
+    
 
 
 
-    public function __construct($id, $nom, $prenom, $email, $telephone,$password)
+    public function __construct($id, $email,$motDePasse,$isAdmin,$nom,$prenom,$numeroLicence)
     {
 
         $this->id = $id;
 
-        $this->nom = $nom;
-
-        $this->prenom = $prenom;
-
         $this->email = $email;
 
-        $this->telephone = $telephone;
+        $this->motDePasse = $motDePasse;
 
-        $this->password = $password;
+        $this->isAdmin = $isAdmin;
+
+        $this->nom= $nom;
+
+        $this->prenom= $prenom;
+        
+        $this->numeroLicence= $numeroLicence; 
     }
 
 
@@ -43,22 +43,6 @@ class EducateurModel  extends LicencieModel
 
 
 
-    public function getNom()
-    {
-
-        return $this->nom;
-    }
-
-
-
-    public function getPrenom()
-    {
-
-        return $this->prenom;
-    }
-
-
-
     public function getEmail()
     {
 
@@ -67,20 +51,34 @@ class EducateurModel  extends LicencieModel
 
 
 
-    public function getTelephone()
+    public function getMotDePasse()
     {
 
-        return $this->telephone;
+        return $this->motDePasse;
     }
 
-    public function getPassword()
+
+
+    public function getIsAdmin()
     {
 
-        return $this->password;
+        return $this->isAdmin;
+    }
+
+ 
+    public function getNomLicencie()
+    {
+
+        return $this->nom.' '.$this->prenom;
     }
     
 
+    public function getNumeroLicence()
+    {
 
+        return $this->numeroLicence;
+    }
+    
 
     public function setId($id)
     {
@@ -90,21 +88,11 @@ class EducateurModel  extends LicencieModel
 
 
 
-    public function setNom($nom)
+    public function setIsAdmin($isAdmin)
     {
 
-        $this->nom = $nom;
+        $this->isAdmin = $isAdmin;
     }
-
-
-
-    public function setPrenom($prenom)
-    {
-
-        $this->prenom = $prenom;
-    }
-
-
 
     public function setEmail($email)
     {
@@ -113,22 +101,13 @@ class EducateurModel  extends LicencieModel
     }
 
 
-
-    public function setTelephone($telephone)
+    public function setMotDePasse($motDePasse)
     {
 
-        $this->telephone = $telephone;
+        $this->motDePasse = $motDePasse;
     }
 
-    public function setPassword($password)
-    {
-
-        $this->password = $password;
-    }
-
-    
-
-    // Vous pouvez ajouter des mÃ©thodes supplÃ©mentaires ici pour manipuler les donnÃ©es du contact
-
+ 
+    // Vous pouvez ajouter des mÃ©thodes supplÃ©mentaires ici pour manipuler les donnÃ©es
 }
 ?>

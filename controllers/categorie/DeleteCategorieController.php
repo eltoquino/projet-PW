@@ -19,7 +19,7 @@ class DeleteCategorieController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($this->categorieDAO->deleteById($categorieId)) {
                 // Rediriger vers la page d'accueil après la suppression
-                header('Location:index.php?page=homecat');
+                header('Location:index.php?page=homecategorie');
                 exit();
             } else {
                 echo "Erreur lors de la suppression de la categorie.";

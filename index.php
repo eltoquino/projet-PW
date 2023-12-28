@@ -14,10 +14,13 @@ require_once("classes/models/LicencieModel.php");
 require_once("classes/dao/LicencieDAO.php");
 $licencieDAO=new LicencieDAO($pdo);
 
+require_once("classes/models/EducateurModel.php");
+require_once("classes/dao/EducateurDAO.php");
+$educateurDAO=new EducateurDAO($pdo);
 
 
-
-
+require_once("classes/dao/LoginDAO.php");
+$loginDAO=new LoginDAO($pdo);
 
 
 if (isset($_GET['page'])) {
@@ -32,14 +35,37 @@ $action = $_GET['action'];
 } 
 else {
 $action = 'index'; 
+
 }
 $controllers = [
-'homecat' => 'HomeCategorieController',
+'homecategorie' => 'HomeCategorieController',
+'viewcategorie' => 'ViewsCategorieController',
+'addcategorie' => 'AddCategorieController',
+'deletecategorie' => 'DeleteCategorieController',
+'editcategorie' => 'EditCategorieController',
+
+ 
 'homecontact' => 'HomeContactController',
-'view' => 'ViewsCategorieController',
-'add' => 'AddCategorieController',
-'delete' => 'DeleteCategorieController',
-'edit' => 'EditCategorieController',
+'viewcontact' => 'ViewsContactController',
+'addcontact' => 'AddContactController',
+'deletecontact' => 'DeleteContactController',
+'editcontact' => 'EditContactController',
+
+'homelicencie' => 'HomeLicencieController',
+'viewlicencie' => 'ViewsLicencieController',
+'addlicencie' => 'AddLicencieController',
+'deletelicencie' => 'DeleteLicencieController',
+'editlicencie' => 'EditLicencieController',
+
+
+'homeeducateur' => 'HomeEducateurController',
+'vieweducateur' => 'ViewsEducateurController',
+'addeducateur' => 'AddEducateurController',
+'deleteeducateur' => 'DeleteEducateurController',
+'editeducateur' => 'EditEducateurController',
+'login' => 'EditEducateurController',
+
+  
 'template' => 'TemplateController',
 ];
 
@@ -50,7 +76,7 @@ $controllerName = $controllers[$page];
 require_once('controllers/categorie/' . $controllerName . '.php');
 
  
-$controller = new $controllerName($categorieDAO);
+$controller = new $controllerName($categorieDAO,$licencieDAO,$contactDAO,$educateurDAO);
 
 $controller->$action(isset($_GET['id'])?$_GET['id'] : null); 
 } else {

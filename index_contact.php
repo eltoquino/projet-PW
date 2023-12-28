@@ -52,7 +52,7 @@ $controllerName = $controllers[$page];
 require_once('controllers/contact/' . $controllerName . '.php');
 
   
-$controller = new $controllerName($contactDAO,$licencieDAO);
+$controller = new $controllerName($contactDAO);
 
 $controller->$action(isset($_GET['id'])?$_GET['id'] : null); 
 } else {

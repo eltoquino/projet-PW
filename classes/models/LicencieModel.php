@@ -67,10 +67,17 @@ class LicencieModel
         $this->nom = $nom;
     }
 
+
     public function getPrenom()
     {
         return $this->prenom;
     }
+
+    public function getNomLicencie()
+    {
+        return $this->nom.' '.$this->prenom;
+    }
+
     public function getNomContact()
     {
         return $this->nomcontact.' '.$this->prenomcontact;
