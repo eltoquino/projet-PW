@@ -1,7 +1,7 @@
 <? ob_start() ?>
 
 <h1>Détails de la catégorie</h1>
-<a href="index.php?page=homecat">Retour à la liste des categories</a>
+<a href="index.php?page=homecategorie">Retour à la liste des categories</a>
 
 <?php if ($categorie) : ?>
     <p><strong>Nom :</strong> <?php echo $categorie->getNom(); ?></p>

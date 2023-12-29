@@ -6,7 +6,7 @@ class CategorieDAO
     private $pdo;
 
     public function __construct(PDO $pdo)
-    {
+    {   
         $this->pdo = $pdo;
     }
 
@@ -86,6 +86,8 @@ class CategorieDAO
             $stmt->execute([$id]);
             return true;
         } catch (PDOException $e) {
+
+             
 
             return false;
         }

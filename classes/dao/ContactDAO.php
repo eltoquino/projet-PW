@@ -71,7 +71,7 @@ class ContactDAO
         try {
             $query = "UPDATE Contacts SET nom = ?, prenom = ?,email = ?, numero_tel = ? WHERE id = ?";
             $stmt = $this->pdo->prepare($query);
-            $stmt->execute([$contact->getNom(), $contact->getPrenom(), $contact->getEmail(), $contact->getNumero_tel(),$contact->getId()]);
+            $stmt->execute([$contact->getNom(), $contact->getPrenom(), $contact->getEmail(), $contact->getTelephone(),$contact->getId()]);
             return true;
         } catch (PDOException $e) {
 
@@ -83,6 +83,9 @@ class ContactDAO
     public function deleteById($id)
     {
         try {
+
+            
+
             $query = "DELETE FROM Contacts WHERE id = ?";
             $stmt = $this->pdo->prepare($query);
             $stmt->execute([$id]);

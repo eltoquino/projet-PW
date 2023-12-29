@@ -30,28 +30,26 @@
             <tr>
                 <td class="border"><?php echo $categorie->getNom(); ?></td>
                 <td class="border"><?php echo $categorie->getCode(); ?></td>
-                  </td>
-                                            <td class="border px-4 py-2">
-                                                <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-white" href="index.php?action=viewCategorie&page=view&id=<?php echo $categorie->getId(); ?>">
-                                                        <i class="fas fa-eye"></i></a>
-                                                <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-white" href="index.php?page=edit&action=editCategorie&id=<?php echo $categorie->getId(); ?>">
-                                                        <i class="fas fa-edit"></i></a>
-                                                <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-red-500" href="index.php?page=delete&action=deleteCategorie&id=<?php echo $categorie->getId(); ?>">
-                                                        <i class="fas fa-trash"></i>
-                                                </a>
-                                            </td>
+                 <td class="border px-4 py-2">
+                   <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-white" href="index.php?action=viewCategorie&page=viewcategorie&id=<?php echo $categorie->getId(); ?>">
+                     <i class="fas fa-eye"></i></a>
+                    <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-white" href="index.php?page=editcategorie&action=editCategorie&id=<?php echo $categorie->getId(); ?>">
+                    <i class="fas fa-edit"></i></a>
+                    <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-red-500" href="index.php?page=deletecategorie&action=deleteCategorie&id=<?php echo $categorie->getId(); ?>">
+                    <i class="fas fa-trash"></i>
+                    </a>
+                    </td>
            </tr>
             </thead>
         <?php endforeach; ?>
     </table>
     </div>
-     
     </div>
       </div>
-    <a href="index.php?page=add" class="btn btn-success d-block">Ajouter</a>
+    <a href="index.php?page=addcategorie" class="btn btn-success d-block">Ajouter</a>
 <?php else : ?>
     <p>Aucune catégorie trouvée.</p>
-    <a href="index.php?page=add" class="btn btn-success d-block">Ajouter</a>
+    <a href="index.php?page=addcategorie" class="btn btn-success d-block">Ajouter</a>
 <?php endif; ?>
 
 
