@@ -34,36 +34,39 @@ if (isset($_GET['action'])) {
 $action = $_GET['action'];
 } 
 else {
+   
 $action = 'index'; 
 
 }
 $controllers = [
-'homecategorie' => 'HomeCategorieController',
-'viewcategorie' => 'ViewsCategorieController',
-'addcategorie' => 'AddCategorieController',
-'deletecategorie' => 'DeleteCategorieController',
-'editcategorie' => 'EditCategorieController',
+'homecategorie' => 'categorie/HomeCategorieController',
+'viewcategorie' => 'categorie/ViewsCategorieController',
+'addcategorie' => 'categorie/AddCategorieController',
+'deletecategorie' => 'categorie/DeleteCategorieController',
+'editcategorie' => 'categorie/EditCategorieController',
 
  
-'homecontact' => 'HomeContactController',
-'viewcontact' => 'ViewsContactController',
-'addcontact' => 'AddContactController',
-'deletecontact' => 'DeleteContactController',
-'editcontact' => 'EditContactController',
+'homecontact' => 'contact/HomeContactController',
+'viewcontact' => 'contact/ViewsContactController',
+'addcontact' => 'contact/AddContactController',
+'deletecontact' => 'contact/DeleteContactController',
+'editcontact' => 'contact/EditContactController',
 
-'homelicencie' => 'HomeLicencieController',
-'viewlicencie' => 'ViewsLicencieController',
-'addlicencie' => 'AddLicencieController',
-'deletelicencie' => 'DeleteLicencieController',
-'editlicencie' => 'EditLicencieController',
+'homelicencie' => 'licencie/HomeLicencieController',
+'viewlicencie' => 'licencie/ViewsLicencieController',
+'addlicencie' => 'licencie/AddLicencieController',
+'deletelicencie' => 'licencie/DeleteLicencieController',
+'editlicencie' => 'licencie/EditLicencieController',
 
 
-'homeeducateur' => 'HomeEducateurController',
-'vieweducateur' => 'ViewsEducateurController',
-'addeducateur' => 'AddEducateurController',
-'deleteeducateur' => 'DeleteEducateurController',
-'editeducateur' => 'EditEducateurController',
+'homeeducateur' => 'educateur/HomeEducateurController',
+'vieweducateur' => 'educateur/ViewsEducateurController',
+'addeducateur' => 'educateur/AddEducateurController',
+'deleteeducateur' => 'educateur/DeleteEducateurController',
+'editeducateur' => 'educateur/EditEducateurController',
 'login' => 'EditEducateurController',
+
+'exporterlicencie' => 'licencie/HomeLicencieController',
 
   
 'template' => 'TemplateController',
@@ -71,12 +74,23 @@ $controllers = [
 
 
 if (array_key_exists($page, $controllers)) {
+ 
 $controllerName = $controllers[$page];
 
-require_once('controllers/categorie/' . $controllerName . '.php');
+//var_dump($controllers);
+//var_dump($page);
+
+//var_dump($controllerName);
+     
+list($racine, $controllerName) = explode("/", $controllerName);
+//var_dump($racine);
+//var_dump($controllerName);
+//die();
+
+require_once('controllers/' .$racine.'/'.$controllerName . '.php');
 
  
-$controller = new $controllerName($categorieDAO,$licencieDAO,$contactDAO,$educateurDAO);
+$controller = new $controllerName($categorieDAO,$licencieDAO,$contactDAO,$educateurDAO,$loginDAO);
 
 $controller->$action(isset($_GET['id'])?$_GET['id'] : null); 
 } else {

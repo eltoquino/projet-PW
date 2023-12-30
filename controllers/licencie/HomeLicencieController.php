@@ -1,11 +1,13 @@
 <?php
 class HomeLicencieController
 {
+    private $categorieDAO;
     private $licencieDAO;
     private $contactDAO;
-    private $categorieDAO;
+    private $educateurDAO; 
+    private  $loginDAO;
 
-    public function __construct(CategorieDAO $categorieDAO,LicencieDAO $licencieDAO,ContactDAO $contactDAO)
+    public function __construct($categorieDAO,$licencieDAO,$contactDAO,$educateurDAO,$loginDAO)
     {
         $this->licencieDAO = $licencieDAO;
     }
@@ -15,12 +17,23 @@ class HomeLicencieController
         // Récupérer la liste de toutes les licencies depuis le modèle
         $licencies = $this->licencieDAO->getAll();
 
+       // var_dump( $licencies );
+       // die();
+
         // var_dump($licencies);
         //die();
 
         // Inclure la vue pour afficher la liste des licencies
         include('views/licencie/home_licencie.php');
     }
+
+    
+    
+
+
+
+
+
 }
 
 ?>

@@ -1,8 +1,12 @@
 <?php
 class EditContactController {
     private $contactDAO;
+    private $categorieDAO;
+    private $educateurDAO; 
+    private  $loginDAO;
+    private $licencieDAO;
 
-    public function __construct(ContactDAO $contactDAO) {
+    public function __construct($categorieDAO,$licencieDAO,$contactDAO,$educateurDAO,$loginDAO) {
         $this->contactDAO = $contactDAO;
     }
 
@@ -40,7 +44,7 @@ class EditContactController {
 
             if ($resultatMiseAJour) {
                 // Rediriger vers la page de détails de contact après la modification
-                header('Location:index_contact.php?page=homecontact');
+                header('Location:index.php?page=homecontact');
                 exit();
             } else {
                 // Gérer les erreurs de mise à jour du contact

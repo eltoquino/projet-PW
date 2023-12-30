@@ -35,13 +35,13 @@
                 <td><?php echo $contact->getTelephone(); ?></td>
                 <td class="border px-4 py-2">
                      
-                    <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-white" href="index_contact.php?action=viewContact&page=view&id=<?php echo $contact->getId(); ?>">
+                    <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-white" href="index.php?action=viewContact&page=viewcontact&id=<?php echo $contact->getId(); ?>">
                      <i class="fas fa-eye"></i></a>
 
-                    <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-white" href="index_contact.php?page=edit&action=editContact&id=<?php echo $contact->getId(); ?>">
+                    <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-white" href="index.php?page=editcontact&action=editContact&id=<?php echo $contact->getId(); ?>">
                     <i class="fas fa-edit"></i></a>
 
-                    <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-red-500" href="index_contact.php?page=delete&action=deleteContact&id=<?php echo $contact->getId(); ?>">
+                    <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-red-500" href="index.php?page=deletecontact&action=deleteContact&id=<?php echo $contact->getId(); ?>">
                     <i class="fas fa-trash"></i>
 
 
@@ -53,10 +53,10 @@
     </div>
     </div>
       </div>
-    <a href="index_contact.php?page=add" class="btn btn-success d-block">Ajouter</a>
+    <a href="index.php?page=addcontact" class="btn btn-success d-block">Ajouter</a>
 <?php else : ?>
     <p>Aucun  contact trouvée.</p>
-    <a href="index_contact.php?page=add" class="btn btn-success d-block">Ajouter</a>
+    <a href="index.php?page=addcontact" class="btn btn-success d-block">Ajouter</a>
 <?php endif; ?>
 
 

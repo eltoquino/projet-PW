@@ -2,8 +2,12 @@
 class ViewsContactController {
 
     private $contactDAO;
+    private $categorieDAO;
+    private $educateurDAO; 
+    private  $loginDAO;
+    private $licencieDAO;
 
-    public function __construct(ContactDAO $contactDAO) {
+    public function __construct($categorieDAO,$licencieDAO,$contactDAO,$educateurDAO,$loginDAO) {
         $this->contactDAO = $contactDAO;
     }
 

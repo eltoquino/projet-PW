@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Mega Able bootstrap admin template by codedthemes </title>
+    <title>Gestion de centre sportif </title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -32,6 +32,15 @@
       <link rel="stylesheet" type="text/css" href="assets/icon/font-awesome/css/font-awesome.min.css">
       <!-- scrollbar.css -->
       <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
+ <!-- Notification.css -->
+ <link rel="stylesheet" type="text/css" href="assets/pages/notification/notification.css">
+ <!-- Animate.css -->
+ <link rel="stylesheet" type="text/css" href="assets/css/animate.css/css/animate.css">
+ <link rel="stylesheet" type="text/css" href="assets/css/jquery.mCustomScrollbar.css">
+
+ <link rel="stylesheet" type="text/css" href="assets/datatables/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/datatables/css/responsive.bootstrap4.min.css">
+
         <!-- am chart export.css -->
         <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
       <!-- Style.css -->
@@ -250,14 +259,14 @@
                                       </li>
                                       <li class=" ">
                                       
-                                          <a href="index_contact.php?page=homecontact" class="waves-effect waves-dark">
+                                          <a href="index.php?page=homecontact" class="waves-effect waves-dark">
                                               <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                               <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Contacts</span>
                                               <span class="pcoded-mcaret"></span>
                                           </a>
                                       </li>
                                       <li class=" ">
-                                      <a href="index_licencie.php?page=homelicencie" class="waves-effect waves-dark">
+                                      <a href="index.php?page=homelicencie" class="waves-effect waves-dark">
                                               <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                               <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Licencies</span>
                                               <span class="pcoded-mcaret"></span>
@@ -270,11 +279,17 @@
                           <div class="pcoded-navigation-label" data-i18n="nav.category.forms">Operations</div>
                           <ul class="pcoded-item pcoded-left-item">
                               <li>
-                              <a href="index_educateur.php?page=homeeducateur" class="waves-effect waves-dark">
+                              <a href="index.php?page=homelicencie" class="waves-effect waves-dark">
+                                      <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                      <span class="pcoded-mtext" data-i18n="nav.form-components.main">Licencie</span>
+                                      <span class="pcoded-mcaret"></span>
+                                  </a>
+                              <a href="index.php?page=homeeducateur" class="waves-effect waves-dark">
                                       <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                       <span class="pcoded-mtext" data-i18n="nav.form-components.main">Educateurs</span>
                                       <span class="pcoded-mcaret"></span>
                                   </a>
+
                               </li>
                               
         
@@ -405,6 +420,38 @@
     <script type="text/javascript" src="assets/js/script.js "></script>
      <!-- Autres template js -->
     <script type="text/javascript" src="./public/main.js"></script>
+
+    <script type="text/javascript" src="assets/js/bootstrap-growl.min.js"></script>
+ 
+<script src="assets/js/pcoded.min.js"></script>
+<script src="assets/js/vertical-layout.min.js "></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+
+<!-- js -->
+ 
+	<script src="assets/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="assets/datatables/js/dataTables.bootstrap4.min.js"></script>
+	<script src="assets/datatables/js/dataTables.responsive.min.js"></script>
+	<script src="assets/datatables/js/responsive.bootstrap4.min.js"></script>
+	<!-- buttons for Export datatable -->
+	<script src="assets/datatables/js/dataTables.buttons.min.js"></script>
+	<script src="assets/datatables/js/buttons.bootstrap4.min.js"></script>
+	<script src="assets/datatables/js/buttons.print.min.js"></script>
+	<script src="assets/datatables/js/buttons.html5.min.js"></script>
+	<script src="assets/datatables/js/buttons.flash.min.js"></script>
+	<script src="assets/datatables/js/pdfmake.min.js"></script>
+	<script src="assets/datatables/js/vfs_fonts.js"></script>
+	<!-- Datatable Setting js -->
+	<script src="assets/datatables/datatable-setting.js"></script></body>
+
+
+
+ 
+
+
+
 </body>
 
 </html>

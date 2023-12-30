@@ -8,7 +8,7 @@
 
                                                                             </div>
                                                                             <div class="card-block">
-    <form action="index_licencie.php?page=add&action=addLicencie" method="post">
+    <form action="index.php?page=addlicencie&action=addLicencie" method="post">
 
        
         <div class="form-group row">

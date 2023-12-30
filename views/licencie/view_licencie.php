@@ -1,7 +1,7 @@
 <? ob_start() ?>
 
 <h1>Détails du contact</h1>
-<a href="index_licencie.php?page=homelicencie">Retour à la liste des licencies</a>
+<a href="index.php?page=homelicencie">Retour à la liste des licencies</a>
 
 <?php if ($licencie) : ?>
     <p><strong>Numero licence :</strong> <?php echo $licencie->getNumeroLicence(); ?></p>

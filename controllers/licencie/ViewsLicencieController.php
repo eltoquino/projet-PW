@@ -1,11 +1,13 @@
 <?php
 class ViewsLicencieController {
 
+    private $categorieDAO;
     private $licencieDAO;
     private $contactDAO;
-    private $categorieDAO;
+    private $educateurDAO; 
+    private  $loginDAO;
 
-    public function __construct(CategorieDAO $categorieDAO,LicencieDAO $licencieDAO,ContactDAO $contactDAO) {
+    public function __construct($categorieDAO,$licencieDAO,$contactDAO,$educateurDAO,$loginDAO) {
         $this->licencieDAO = $licencieDAO;
         $this->contactDAO = $contactDAO;
         $this->categorieDAO = $categorieDAO;

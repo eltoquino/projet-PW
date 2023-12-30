@@ -1,25 +1,54 @@
 <? ob_start() ?>
 
-<h1>Ajouter un Contact</h1>
-    <a href="index_contact.php?page=homecontact">Retour à la liste des contacts</a>
+<div class="card">
+<a   class="ti-control-backward"  href="index.php?page=homecontact">Retour</a>
+    <div class="card-header">
+                                                                                <h5>Ajouter un contact</h5>
 
-    <form action="index_contact.php?page=add&action=addContact" method="post">
+                                                                            </div>
+                                                                            <div class="card-block">
 
-        <label for="nom">Nom :</label>
-        <input type="text" id="nom" name="nom" required><br>
+    <form action="index.php?page=addcontact&action=addContact" method="post">
 
-        <label for="code">Prenom :</label>
-        <input type="text" id="prenom" name="prenom" required><br>
+    <div class="form-group row">
+               <label class="col-sm-2 col-form-label">Nom :</label>
+             <div class="col-sm-10">
+                <input type="text" class="form-control form-control-normal" id="nom" name="nom" required
+                placeholder="nom du contact">
+               </div>
+        </div>
+ 
+        <div class="form-group row">
+               <label class="col-sm-2 col-form-label">Prenom :</label>
+             <div class="col-sm-10">
+                <input type="text" class="form-control form-control-normal" id="prenom" name="prenom" required
+                placeholder="prenom du contact">
+               </div>
+        </div>
+ 
+        <div class="form-group row">
+               <label class="col-sm-2 col-form-label">Email :</label>
+             <div class="col-sm-10">
+                <input type="email" class="form-control form-control-normal" id="email" name="email"required
+                placeholder="email du contact">
+               </div>
+        </div>
 		
-		 <label for="nom">Email :</label>
-        <input type="text" id="email" name="email" required><br>
+        <div class="form-group row">
+               <label class="col-sm-2 col-form-label">Telephone :</label>
+             <div class="col-sm-10">
+                <input type="text" class="form-control form-control-normal" id="telephone" name="telephone" required
+                placeholder="telephone du contact">
+               </div>
+        </div>
+		 
 
-        <label for="code">Telephone :</label>
-        <input type="text" id="telephone" name="telephone" required><br>
+        
 
         <input type="submit" class="btn btn-warning" name="action" value="Ajouter">
     </form>
-
+    </div>
+    </div>
 <?php
 $content = ob_get_clean();
 require (getcwd()."/views/template.php");

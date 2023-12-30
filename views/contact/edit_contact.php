@@ -1,10 +1,10 @@
 <?php ob_start() ?>
 
 <h1>Modifier un contact</h1>
-<a href="index_contact.php?page=homecontact">Retour à la liste des contacts</a>
+<a href="index.php?page=homecontact">Retour à la liste des contacts</a>
 
 <?php if ($contact) : ?>
-    <form action="index_contact.php?action=editContact&page=edit&id=<?php echo $contact->getId(); ?>" method="post">
+    <form action="index.php?action=editContact&page=editcontact&id=<?php echo $contact->getId(); ?>" method="post">
             <div class="form-group row">
                 <input type="hidden" name="id" value="<?php echo $contact->getId(); ?>">
 

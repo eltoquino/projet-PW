@@ -1,10 +1,10 @@
 <?php ob_start() ?>
 
 <h1>Modifier un licencie</h1>
-<a href="index.php?page=homecat">Retour à la liste des licenciés</a>
+<a href="index.php?page=homelicencie">Retour à la liste des licenciés</a>
 
 <?php if ($licencie) : ?>
-    <form action="index_licencie.php?action=editLicencie&page=edit&id=<?php echo $licencie->getId(); ?>" method="post">
+    <form action="index.php?action=editLicencie&page=editlicencie&id=<?php echo $licencie->getId(); ?>" method="post">
             <div class="form-group row">
                 <input type="hidden" name="id" value="<?php echo $licencie->getId(); ?>">
 

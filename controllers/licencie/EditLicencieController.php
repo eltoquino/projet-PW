@@ -1,12 +1,14 @@
 <?php
 class EditLicencieController {
+    private $categorieDAO;
     private $licencieDAO;
     private $contactDAO;
-    private $categorieDAO;
+    private $educateurDAO; 
+    private  $loginDAO;
 
   
 
-    public function __construct(CategorieDAO $categorieDAO,LicencieDAO $licencieDAO,ContactDAO $contactDAO) {
+    public function __construct($categorieDAO,$licencieDAO,$contactDAO,$educateurDAO,$loginDAO) {
         $this->licencieDAO = $licencieDAO;
         $this->contactDAO = $contactDAO;
         $this->categorieDAO = $categorieDAO;
@@ -33,7 +35,7 @@ class EditLicencieController {
             $categorie_id = $_POST['categorie_id'];
 
             // Messages de débogage
-            echo "Données du formulaire - Nom: $nom, Code: $prenom <br>";
+           // echo "Données du formulaire - Nom: $nom, Code: $prenom <br>";
 
             // Mettre à jour les détails du licencie
             $licencie->setNumeroLicence($numero_licencie);
@@ -46,12 +48,12 @@ class EditLicencieController {
             $resultatMiseAJour = $this->licencieDAO->update($licencie);
 
             // Messages de débogage
-            echo "Résultat de la mise à jour : ";
-            var_dump($resultatMiseAJour);
+        //    echo "Résultat de la mise à jour : ";
+           // var_dump($resultatMiseAJour);
 
             if ($resultatMiseAJour) {
                 // Rediriger vers la page de détails de la catégorie après la modification
-                header('Location:index_licencie.php?page=homelicencie');
+                header('Location:index.php?page=homelicencie');
                 exit();
             } else {
                 // Gérer les erreurs de mise à jour de la catégorie

@@ -1,8 +1,13 @@
 <?php
 class AddContactController {
+    private $categorieDAO;
+    private $licencieDAO;
     private $contactDAO;
+    private $educateurDAO; 
+    private  $loginDAO;
 
-    public function __construct(ContactDAO $contactDAO) {
+
+    public function __construct($categorieDAO,$licencieDAO,$contactDAO,$educateurDAO,$loginDAO) {
         $this->contactDAO = $contactDAO;
     }
 
@@ -22,7 +27,7 @@ class AddContactController {
            Var_dump($nouvelContact);
           
             if ($this->contactDAO->create($nouvelContact)) {
-                header('Location:index_Contact.php?page=homecontact');
+                header('Location:index.php?page=homecontact');
                 exit();
             } else {
                 echo "Erreur lors de l'ajout du contact.";

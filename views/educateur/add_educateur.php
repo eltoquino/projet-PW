@@ -1,14 +1,27 @@
-<? ob_start() ?>
+<? ob_start() ;
+session_start();
+?>
 
 
 <div class="card">
 <a   class="ti-control-backward"  href="index.php?page=template">Retour</a>
     <div class="card-header">
-                                                                                <h5>Ajouter un educateur</h5>
+                                                                                <h5>Ajouter un educateur :
+                                                                                <?php  echo  isset($_SESSION['message'])?$_SESSION['message']:'';?>
+
+                                                                                </h5>
 
                                                                             </div>
                                                                             <div class="card-block">
-    <form action="index_educateur.php?page=add&action=addEducateur" method="post">
+
+                                         <?php if ($message): ?>
+                                        <div class="alert alert-danger" role="alert">
+                                            Cet educateur est déja ajouté
+                                        </div>
+                                      <?php endif ?>
+
+                                                                            
+    <form action="index.php?page=addeducateur&action=addEducateur" method="post">
 
     <div class="form-group row">
                <label class="col-sm-2 col-form-label">Licencié :</label>
@@ -25,7 +38,7 @@
         <div class="form-group row">
                <label class="col-sm-2 col-form-label">Email :</label>
              <div class="col-sm-10">
-                <input type="text" class="form-control form-control-normal" id="email" name="email" required
+                <input type="email" class="form-control form-control-normal" id="email" name="email" required
                 placeholder="Email">
                </div>
         </div>
@@ -37,6 +50,13 @@
                 placeholder="Mot de passe">
                </div>
         </div>
+        <div class="form-group row">
+               <label class="col-sm-2 col-form-label">Confirmer Mot de passe :</label>
+             <div class="col-sm-10">
+                <input type="password" class="form-control form-control-normal" id="confirpassword" name="confirpassword" required
+                placeholder="Confirmer Mot de passe">
+               </div>
+        </div>
 
         <div class="form-group row">
                <label class="col-sm-2 col-form-label">Est admin :</label>
@@ -45,10 +65,15 @@
                </div>
         </div>
         <input type="submit" class="btn btn-success d-block" name="action" value="Ajouter">
+
+       
     </form>
+
+     
     </div>
     </div>
 <?php
 $content = ob_get_clean();
+
 require (getcwd()."/views/template.php");
 ?>

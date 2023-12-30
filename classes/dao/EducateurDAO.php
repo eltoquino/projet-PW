@@ -35,7 +35,7 @@ class EducateurDAO
             $query = "select educ.id ,educ.email,educ.mot_de_passe,educ.is_admin,lc.nom,lc.prenom,
             lc.numero_licence
             from educateurs educ join licencies lc on educ.id=lc.id
-            WHERE id = ?";
+            WHERE educ.id = ?";
             $stmt = $this->pdo->prepare($query);
             $stmt->execute([$id]);
             $row = $stmt->fetch(PDO::FETCH_ASSOC);

@@ -1,5 +1,5 @@
 <?php
-class DeleteContactController
+class DeleteLicencieController
 {
     private $contactDAO;
     private $categorieDAO;
@@ -9,15 +9,15 @@ class DeleteContactController
 
     public function __construct($categorieDAO,$licencieDAO,$contactDAO,$educateurDAO,$loginDAO)
     {
-        $this->contactDAO = $contactDAO;
+        $this->licencieDAO = $licencieDAO;
         
     }
 
-    public function deleteContact($contactId) {
-        $contact = $this->contactDAO->getById($contactId);
+    public function deleteLicencie($licencieId) {
+        $licencie = $this->licencieDAO->getById($licencieId);
 
-        if (!$contact) {
-            echo "Le contact n'a pas été trouvé.";
+        if (!$licencie) {
+            echo "Le licencie n'a pas été trouvé.";
             return;
         }
 
@@ -25,12 +25,12 @@ class DeleteContactController
           
           //  if($this->licencieDAO->deleteByContactId($contactId)){
 
-                if ($this->contactDAO->deleteById($contactId)) {
+                if ($this->licencieDAO->deleteById($licencieId)) {
                     // Rediriger vers la page d'accueil après la suppression
-                    header('Location:index.php?page=homecontact');
+                    header('Location:index.php?page=homelicencie');
                     exit();
                 } else {
-                    echo "Erreur lors de la suppression du contact.";
+                    echo "Erreur lors de la suppression du licencie.";
                 }
           //  }
            // else{
@@ -39,7 +39,7 @@ class DeleteContactController
            
         }
 
-        include('views/contact/delete_contact.php');
+        include('views/licencie/delete_licencie.php');
     }
 }
 

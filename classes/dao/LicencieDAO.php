@@ -74,7 +74,10 @@ class LicencieDAO
             $stmt->execute([$licencie->getNumeroLicence(), $licencie->getNom(), $licencie->getPrenom(), $licencie->getContactId(), $licencie->getCategorieId(), $licencie->getId()]);
             return true;
         } catch (PDOException $e) {
+
+            
             return false;
+
         }
     }
 

@@ -6,6 +6,8 @@
     <div class="card-header">
         <h5>Liste des licencies</h5>
        
+        
+
           <div class="card-header-right">
           <ul class="list-unstyled card-option">
            <li><i class="fa fa fa-wrench open-card-option"></i></li>
@@ -43,13 +45,13 @@
                 <td class="border px-4 py-2"><?php echo $licencie->getNomcateg(); ?></td>
                 <td class="border px-4 py-2">
                      
-                    <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-white" href="index_licencie.php?action=viewLicencie&page=view&id=<?php echo $licencie->getId(); ?>">
+                    <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-white" href="index.php?action=viewLicencie&page=viewlicencie&id=<?php echo $licencie->getId(); ?>">
                      <i class="fas fa-eye"></i></a>
 
-                    <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-white" href="index_licencie.php?page=edit&action=editLicencie&id=<?php echo $licencie->getId(); ?>">
+                    <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-white" href="index.php?page=editlicencie&action=editLicencie&id=<?php echo $licencie->getId(); ?>">
                     <i class="fas fa-edit"></i></a>
 
-                    <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-red-500" href="index_licencie.php?page=delete&action=deleteLicencie&id=<?php echo $licencie->getId(); ?>">
+                    <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-red-500" href="index.php?page=deletelicencie&action=deleteLicencie&id=<?php echo $licencie->getId(); ?>">
                     <i class="fas fa-trash"></i></a>
 
 
@@ -61,10 +63,10 @@
     </div>
     </div>
       </div>
-    <a href="index_licencie.php?page=add" class="btn btn-success d-block">Ajouter</a>
+    <a href="index.php?page=addlicencie" class="btn btn-success d-block">Ajouter</a>
 <?php else : ?>
     <p>Aucun  contact trouvée.</p>
-    <a href="index_licencie.php?page=add" class="btn btn-success d-block">Ajouter</a>
+    <a href="index.php?page=addlicencie" class="btn btn-success d-block">Ajouter</a>
 <?php endif; ?>
 
 

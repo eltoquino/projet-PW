@@ -2,11 +2,13 @@
 
  
 class AddLicencieController {
+    private $categorieDAO;
     private $licencieDAO;
     private $contactDAO;
-    private $categorieDAO;
+    private $educateurDAO; 
+    private  $loginDAO;
 
-    public function __construct(CategorieDAO $categorieDAO,LicencieDAO $licencieDAO,ContactDAO $contactDAO) {
+    public function __construct($categorieDAO,$licencieDAO,$contactDAO,$educateurDAO,$loginDAO) {
         $this->licencieDAO = $licencieDAO;
         $this->contactDAO = $contactDAO;
         $this->categorieDAO = $categorieDAO;
@@ -46,7 +48,7 @@ class AddLicencieController {
           
 
             if ($this->licencieDAO->create($nouvelLicencie)) {
-                header('Location:index_Licencie.php?page=homelicencie');
+                header('Location:index.php?page=homelicencie');
                 exit();
             } else {
                 echo "Erreur lors de l'ajout du licencie.";
