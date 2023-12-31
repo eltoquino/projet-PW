@@ -15,6 +15,8 @@ class AddEducateurController {
 
     public function index() {
         $message="";
+        $error="";
+        $_SESSION['message']='';
 
        // Récupérer la liste de toutes les catégories
           $licencies = $this->licencieDAO->getAll(); 
@@ -27,13 +29,16 @@ class AddEducateurController {
     
     public function addEducateur() {
         $message="";
-        session_start();
+        $error="";
+     
+
+        //session_start();
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Récupérer les données du formulaire
 
              //Var_dump($_POST);
               //die();
-              session_start();
+              
 
 
             $licencie_id = $_POST['licencie_id'];
@@ -42,6 +47,7 @@ class AddEducateurController {
             $isAdmin =isset($_POST['isAdmin'])?1:0;
             $confirpassword=$_POST['confirpassword'];
             
+            /*
             if($password!= $confirpassword)
             {
                 $message="Les mots de passe doit etre identique";
@@ -50,7 +56,7 @@ class AddEducateurController {
                 header('Location:index.php?page=addeducateur');
                   //include('views/educateur/add_educateur.php'); 
                    exit();
-            }
+            }*/
  
           
             $nouvelEducateur = new EducateurModel($licencie_id, $email,$password, $isAdmin,0,0,0);
@@ -60,13 +66,12 @@ class AddEducateurController {
           $educa = $this->educateurDAO->getById($licencie_id);
           if($educa!=null)
           {
-           
-            $_SESSION['message'] = 'Cet educateur est déja ajouté';
-            //var_dump($message);
-            //  die();
+            $error=" educateur existe deja";
+          $_SESSION['message'] = 'Cet educateur est déja ajouté';
+            
            header('Location:index.php?page=addeducateur');
            
-          // require('views/educateur/add_educateur.php'); 
+        //  include('views/educateur/add_educateur.php'); 
              // exit();
               
           }

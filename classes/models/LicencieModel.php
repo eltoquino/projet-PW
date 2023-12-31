@@ -82,6 +82,15 @@ class LicencieModel
     {
         return $this->nomcontact.' '.$this->prenomcontact;
     }
+    public function getNomDetContact()
+    {
+        return $this->nomcontact ;
+    }
+    public function getPrenomDetContact()
+    {
+        return $this->prenomcontact ;
+    }
+
     public function getEmailContact()
     {
         return $this->emailcontact ;
@@ -93,6 +102,10 @@ class LicencieModel
     public function getNomcateg()
     {
         return $this->nomcateg;
+    }
+    public function getCodecateg()
+    {
+        return $this->codecateg ;
     }
 
     public function setPrenom($prenom)

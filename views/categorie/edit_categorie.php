@@ -1,5 +1,13 @@
 <?php ob_start() ?>
 
+<?php 
+
+    if(!isset($_SESSION['email'])){
+        header("Location:index.php?page=login");
+    }
+?>
+
+
 <h1>Modifier une Catégorie</h1>
 <a href="index.php?page=homecategorie">Retour à la liste des catégories</a>
 

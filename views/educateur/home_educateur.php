@@ -1,11 +1,21 @@
 <?php ob_start() ?>
 
+
+<?php 
+
+    if(!isset($_SESSION['email'])){
+        header("Location:index.php?page=login");
+    }
+?>
+
 <?php if (count($educateurs) > 0) : ?>
     <a   class="ti-control-backward"  href="index.php?page=template">Retour</a>
     <div class="card">
     <div class="card-header">
         <h5>Liste des educateurs</h5>
+
        
+
           <div class="card-header-right">
           <ul class="list-unstyled card-option">
            <li><i class="fa fa fa-wrench open-card-option"></i></li>
@@ -42,10 +52,10 @@
                     <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-white" href="index.php?action=viewEducateur&page=view&id=<?php echo $educateur->getId(); ?>">
                      <i class="fas fa-eye"></i></a>
 
-                    <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-white" href="index_educateur.php?page=editeducateur&action=editEducateur&id=<?php echo $educateur->getId(); ?>">
+                    <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-white" href="index.php?page=editeducateur&action=editEducateur&id=<?php echo $educateur->getId(); ?>">
                     <i class="fas fa-edit"></i></a>
 
-                    <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-red-500" href="index_educateur.php?page=deleteeducateur&action=deleteEducateur&id=<?php echo $educateur->getId(); ?>">
+                    <a class="bg-teal-300 cursor-pointer rounded p-1 mx-1 text-red-500" href="index.php?page=deleteeducateur&action=deleteEducateur&id=<?php echo $educateur->getId(); ?>">
                     <i class="fas fa-trash"></i></a>
 
 

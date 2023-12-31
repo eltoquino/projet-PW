@@ -10,6 +10,7 @@ class DeleteLicencieController
     public function __construct($categorieDAO,$licencieDAO,$contactDAO,$educateurDAO,$loginDAO)
     {
         $this->licencieDAO = $licencieDAO;
+        $this->educateurDAO = $educateurDAO;
         
     }
 
@@ -22,16 +23,50 @@ class DeleteLicencieController
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-          
-          //  if($this->licencieDAO->deleteByContactId($contactId)){
+           // var_dump($licencieId);
+           // die();
 
+
+           // $row=$this->licencieDAO->getByContactId($contactId);
+        
+           // if($row!=null)
+           // {
+                $roweduc=$this->educateurDAO->getById($licencieId);
+                if($roweduc!=null)
+                {
+                    $this->educateurDAO->deleteById($licencieId);
+                    $this->licencieDAO->deleteById($licencieId);
+                   // $this->contactDAO->deleteById($contactId);
+                }
+                else
+                {
+                    $this->licencieDAO->deleteById($licencieId);
+                    //$this->contactDAO->deleteById($contactId);
+    
+                }
+    
+           // }
+           // else
+           // {
+    
+             //   $this->contactDAO->deleteById($contactId);
+    
+           // }
+           header('Location:index.php?page=homelicencie');
+            exit();
+
+
+ 
+          //  if($this->licencieDAO->deleteByContactId($contactId)){
+/*
                 if ($this->licencieDAO->deleteById($licencieId)) {
                     // Rediriger vers la page d'accueil après la suppression
-                    header('Location:index.php?page=homelicencie');
+                   // header('Location:index.php?page=homelicencie');
                     exit();
                 } else {
                     echo "Erreur lors de la suppression du licencie.";
                 }
+                */
           //  }
            // else{
               //  echo "Erreur lors de la suppression des liecenciés en relation avec ce contact.";

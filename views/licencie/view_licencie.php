@@ -1,5 +1,10 @@
 <? ob_start() ?>
+<?php 
 
+    if(!isset($_SESSION['email'])){
+        header("Location:index.php?page=login");
+    }
+?>
 <h1>Détails du contact</h1>
 <a href="index.php?page=homelicencie">Retour à la liste des licencies</a>
 

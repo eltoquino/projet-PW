@@ -161,38 +161,11 @@
                               <ul class="show-notification">
                                   <li>
                                       <h6>Notifications</h6>
-                                      <label class="label label-danger">New</label>
+                                      <label class="label label-danger">Nouveau</label>
                                   </li>
-                                  <li class="waves-effect waves-light">
-                                      <div class="media">
-                                          <img class="d-flex align-self-center img-radius" src="assets/images/avatar-2.jpg" alt="Generic placeholder image">
-                                          <div class="media-body">
-                                              <h5 class="notification-user">John Doe</h5>
-                                              <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                              <span class="notification-time">30 minutes ago</span>
-                                          </div>
-                                      </div>
-                                  </li>
-                                  <li class="waves-effect waves-light">
-                                      <div class="media">
-                                          <img class="d-flex align-self-center img-radius" src="assets/images/avatar-4.jpg" alt="Generic placeholder image">
-                                          <div class="media-body">
-                                              <h5 class="notification-user">Joseph William</h5>
-                                              <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                              <span class="notification-time">30 minutes ago</span>
-                                          </div>
-                                      </div>
-                                  </li>
-                                  <li class="waves-effect waves-light">
-                                      <div class="media">
-                                          <img class="d-flex align-self-center img-radius" src="assets/images/avatar-3.jpg" alt="Generic placeholder image">
-                                          <div class="media-body">
-                                              <h5 class="notification-user">Sara Soudein</h5>
-                                              <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
-                                              <span class="notification-time">30 minutes ago</span>
-                                          </div>
-                                      </div>
-                                  </li>
+                                  
+                                  
+                                 
                               </ul>
                           </li>
                            
@@ -210,7 +183,7 @@
                               <div class="main-menu-header">
                                   <img class="img-80 img-radius" src="assets/images/avatar-4.jpg" alt="User-Profile-Image">
                                   <div class="user-details">
-                                      <span id="more-details">John Doe<i class="fa fa-caret-down"></i></span>
+                                      <span id="more-details">  <?php echo isset($_SESSION['email'])?$_SESSION['email']:'';?><i class="fa fa-caret-down"></i></span>
                                   </div>
                               </div>
         
@@ -219,7 +192,7 @@
                                       <li class="more-details">
                                           <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
                                           <a href="#!"><i class="ti-settings"></i>Settings</a>
-                                          <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Logout</a>
+                                          <a href="index.php?page=logout"><i class="ti-layout-sidebar-left"></i>Logout</a>
                                       </li>
                                   </ul>
                               </div>
@@ -229,11 +202,11 @@
                                   <div class="form-group form-primary">
                                       <input type="text" name="footer-email" class="form-control" required="">
                                       <span class="form-bar"></span>
-                                      <label class="float-label"><i class="fa fa-search m-r-10"></i>Search Friend</label>
+                                      <label class="float-label"><i class="fa fa-search m-r-10"></i>Recherche</label>
                                   </div>
                               </form>
                           </div>
-                          <div class="pcoded-navigation-label" data-i18n="nav.category.navigation">Layout</div>
+                          <div class="pcoded-navigation-label" data-i18n="nav.category.navigation">Parametres</div>
                           <ul class="pcoded-item pcoded-left-item">
                               <li class="active">
                                   <a href="index.html" class="waves-effect waves-dark">
@@ -242,43 +215,24 @@
                                       <span class="pcoded-mcaret"></span>
                                   </a>
                               </li>
-                              <li class="pcoded-hasmenu">
-                                  <a href="javascript:void(0)" class="waves-effect waves-dark">
-                                      <span class="pcoded-micon"><i class="ti-layout-grid2-alt"></i></span>
-                                      <span class="pcoded-mtext"  data-i18n="nav.basic-components.main">Parametres</span>
-                                      <span class="pcoded-mcaret"></span>
-                                  </a>
-                                  <ul class="pcoded-submenu">
-                                      <li class=" ">
-                                      
-                                          <a href="index.php?page=homecategorie" class="waves-effect waves-dark">
-                                              <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                              <span class="pcoded-mtext" data-i18n="nav.basic-components.alert">Categories</span>
-                                              <span class="pcoded-mcaret"></span>
-                                          </a>
-                                      </li>
-                                      <li class=" ">
-                                      
-                                          <a href="index.php?page=homecontact" class="waves-effect waves-dark">
-                                              <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                              <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Contacts</span>
-                                              <span class="pcoded-mcaret"></span>
-                                          </a>
-                                      </li>
-                                      <li class=" ">
-                                      <a href="index.php?page=homelicencie" class="waves-effect waves-dark">
-                                              <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                              <span class="pcoded-mtext" data-i18n="nav.basic-components.breadcrumbs">Licencies</span>
-                                              <span class="pcoded-mcaret"></span>
-                                          </a>
-                                      </li>
-                                       
-                                  </ul>
-                              </li>
+
+                              
                           </ul>
                           <div class="pcoded-navigation-label" data-i18n="nav.category.forms">Operations</div>
                           <ul class="pcoded-item pcoded-left-item">
                               <li>
+                              <a href="index.php?page=homecategorie" class="waves-effect waves-dark">
+                                      <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                      <span class="pcoded-mtext" data-i18n="nav.form-components.main">Categories</span>
+                                      <span class="pcoded-mcaret"></span>
+                              </a>
+
+                              <a href="index.php?page=homecontact" class="waves-effect waves-dark">
+                                      <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                      <span class="pcoded-mtext" data-i18n="nav.form-components.main">Contacts</span>
+                                      <span class="pcoded-mcaret"></span>
+                              </a>
+
                               <a href="index.php?page=homelicencie" class="waves-effect waves-dark">
                                       <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                       <span class="pcoded-mtext" data-i18n="nav.form-components.main">Licencie</span>
@@ -304,7 +258,7 @@
                                   <div class="col-md-8">
                                       <div class="page-header-title">
                                           <h5 class="m-b-10">Dashboard</h5>
-                                          <p class="m-b-0">Welcome to Mega Able</p>
+                                          <p class="m-b-0">Bienvenu au club sportif</p>
                                       </div>
                                   </div>
                                   <div class="col-md-4">

@@ -1,5 +1,7 @@
 <?php
 
+ include('classes/dao/LoginDAO.php'); 
+
 require_once("config/config.php");
 require_once("classes/models/CategorieModel.php");
 require_once("classes/dao/CategorieDAO.php");
@@ -64,9 +66,12 @@ $controllers = [
 'addeducateur' => 'educateur/AddEducateurController',
 'deleteeducateur' => 'educateur/DeleteEducateurController',
 'editeducateur' => 'educateur/EditEducateurController',
-'login' => 'EditEducateurController',
 
-'exporterlicencie' => 'licencie/HomeLicencieController',
+'login' => 'LoginController',
+
+'logout' => 'LogoutController',
+
+'exporterlicencie' => 'licencie/ExporterLicencieController',
 
   
 'template' => 'TemplateController',
@@ -77,17 +82,17 @@ if (array_key_exists($page, $controllers)) {
  
 $controllerName = $controllers[$page];
 
-//var_dump($controllers);
-//var_dump($page);
-
-//var_dump($controllerName);
-     
-list($racine, $controllerName) = explode("/", $controllerName);
-//var_dump($racine);
-//var_dump($controllerName);
-//die();
-
-require_once('controllers/' .$racine.'/'.$controllerName . '.php');
+ if(strpos($controllerName, '/') !== false)
+ {
+ //echo 'oui';
+    list($racine, $controllerName) = explode("/", $controllerName);
+    require_once('controllers/' .$racine.'/'.$controllerName . '.php');
+ }
+ else{
+    //echo 'non';
+    require_once('controllers/' .$controllerName . '.php');
+ }
+  
 
  
 $controller = new $controllerName($categorieDAO,$licencieDAO,$contactDAO,$educateurDAO,$loginDAO);

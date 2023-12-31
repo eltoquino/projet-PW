@@ -1,5 +1,12 @@
 <?php ob_start() ?>
 
+<?php 
+
+    if(!isset($_SESSION['email'])){
+        header("Location:index.php?page=login");
+    }
+?>
+
 <?php if (count($licencies) > 0) : ?>
     <a   class="ti-control-backward"  href="index.php?page=template">Retour</a>
     <div class="card">
@@ -7,6 +14,8 @@
         <h5>Liste des licencies</h5>
        
         
+<a href="index.php?page=exporterlicencie&action=exporterLicencie">Export</a>
+
 
           <div class="card-header-right">
           <ul class="list-unstyled card-option">

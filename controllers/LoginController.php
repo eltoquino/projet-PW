@@ -20,9 +20,7 @@ class LoginController {
     public function index() {
         $error=false;
         //$notAdmin=false;
-
-      
-          
+ 
          // Var_dump($contacts);
         //  Var_dump($categories);
          // die();
@@ -52,8 +50,8 @@ class LoginController {
 
             if ($this->loginDAO->getConnexion($email,$motdepasse)) {
 
-
-                header('Location:index_educateur.php?page=homeeducateur');
+                $_SESSION['email'] = $email;
+                header('Location:index.php?page=template');
                 exit();
             } else {
                // echo "Erreur lors de l'ajout du licencie.";

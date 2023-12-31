@@ -6,14 +6,18 @@ class HomeLicencieController
     private $contactDAO;
     private $educateurDAO; 
     private  $loginDAO;
+   
 
-    public function __construct($categorieDAO,$licencieDAO,$contactDAO,$educateurDAO,$loginDAO)
+    public function __construct($categorieDAO,$licencieDAO,$contactDAO,$educateurDAO, $loginDAO)
     {
         $this->licencieDAO = $licencieDAO;
+      //  $this->loginDAO = $loginDAO;
     }
 
     public function index()
     {
+
+        //$login= $this->loginDAO->getAdmin();
         // Récupérer la liste de toutes les licencies depuis le modèle
         $licencies = $this->licencieDAO->getAll();
 

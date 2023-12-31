@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Mega Able bootstrap admin template by codedthemes </title>
+    <title>Gestion de club sportif </title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -98,7 +98,7 @@
                 <div class="col-sm-12">
                     <!-- Authentication card start -->
                     
-                        <form action="index_educateur?page=login&action=isLogin" class="md-float-material form-material"
+                        <form action="index?page=login&action=isLogin" class="md-float-material form-material"
                         method="post">
                             <div class="text-center">
                                 <img src="assets/images/logo.png" alt="logo.png">
@@ -113,10 +113,10 @@
                                     <div class="form-group form-primary">
                                         <input type="text" name="email" class="form-control" required="">
                                         <span class="form-bar"></span>
-                                        <label class="float-label">Your Email Address</label>
+                                        <label class="float-label">Adresse mail</label>
                                     </div>
                                     <div class="form-group form-primary">
-                                        <input type="motdepasse" name="motdepasse" class="form-control" required="">
+                                        <input type="password" name="motdepasse" class="form-control" required="">
                                         <span class="form-bar"></span>
                                         <label class="float-label">Password</label>
                                     </div>
@@ -130,13 +130,13 @@
                                                 </label>
                                             </div>
                                             <div class="forgot-phone text-right f-right">
-                                                <a href="#" class="text-right f-w-600"> Forgot Password?</a>
+                                                <a href="#" class="text-right f-w-600"> mot de passe oublié ?</a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row m-t-30">
                                         <div class="col-md-12">
-                                            <button type="submit"  class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20">Sign in</button>
+                                            <button type="submit"  class="btn btn-primary btn-md btn-block waves-effect waves-light text-center m-b-20">Connexion</button>
                                         </div>
                                         <?php if ($error): ?>
                                         <div class="alert alert-danger" role="alert">
@@ -149,8 +149,8 @@
                                     <hr/>
                                     <div class="row">
                                         <div class="col-md-10">
-                                            <p class="text-inverse text-left m-b-0">Thank you.</p>
-                                            <p class="text-inverse text-left"><a href="index.html"><b>Back to website</b></a></p>
+                                            
+                                            
                                         </div>
                                         <div class="col-md-2">
                                             <img src="assets/images/auth/Logo-small-bottom.png" alt="small-logo.png">

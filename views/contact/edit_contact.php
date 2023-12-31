@@ -1,5 +1,12 @@
 <?php ob_start() ?>
 
+<?php 
+
+    if(!isset($_SESSION['email'])){
+        header("Location:index.php?page=login");
+    }
+?>
+
 <h1>Modifier un contact</h1>
 <a href="index.php?page=homecontact">Retour à la liste des contacts</a>
 

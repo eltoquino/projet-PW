@@ -1,13 +1,22 @@
-<? ob_start() ;
-session_start();
+<? ob_start() 
+ 
 ?>
+
+
+<?php 
+
+    if(!isset($_SESSION['email'])){
+        header("Location:index.php?page=login");
+    }
+?>
+
 
 
 <div class="card">
 <a   class="ti-control-backward"  href="index.php?page=template">Retour</a>
     <div class="card-header">
                                                                                 <h5>Ajouter un educateur :
-                                                                                <?php  echo  isset($_SESSION['message'])?$_SESSION['message']:'';?>
+                                                                                <?php echo isset($_SESSION['message'])?$_SESSION['message']:'';?>
 
                                                                                 </h5>
 

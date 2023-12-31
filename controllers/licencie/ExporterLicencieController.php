@@ -1,5 +1,6 @@
 <?php
-class HomeLicencieController
+
+class ExporterLicencieController
 {
     private $categorieDAO;
     private $licencieDAO;
@@ -23,17 +24,23 @@ class HomeLicencieController
 
 
 
-        $newReservations = $select->fetchAll();
+        //$newReservations = $select->fetchAll();
+       //var_dump($licencies);
+       //die();
 
 $excel = "";
-$excel .=  "Id\numero_licence\tNom\tPrénom\tidcontact\tidcategorie\tnomcontact\tprenomcontact\temailcontact\tMail\ttelcontact\tNomCategorie\tCodeCategorie";
-
+$excel .=  "Id\tnumero_licence\tNom\tPrénom\tidcontact\tidcategorie\tnomcontact\tprenomcontact\temailcontact\ttelcontact\tNomCategorie\tCodeCategorie\n";
+ 
 foreach($licencies as $row) {
-    $excel .= "$row[id]\t$row[numero_licence]\t$row[nom]\t$row[prenom]\t$row[contact_id]\t$row[categorie_id]\t$row[nomcontact]\t$row[prenomcontact]\t$row[emailcontact]\t$row[telcontact]\t$row[nomcateg]\t$row[codecateg]\n";
+   // var_dump($row);
+   // var_dump($row->getId());
+   //  $excel .= "$row[id]\t$row[numero_licence]\t$row[nom]\t$row[prenom]\t$row[contact_id]\t$row[categorie_id]\t$row[nomcontact]\t$row[prenomcontact]\t$row[emailcontact]\t$row[telcontact]\t$row[nomcateg]\t$row[codecateg]\n";
+    $excel .= $row->getId()."\t".$row->getNumeroLicence()."\t".$row->getNom()."\t".$row->getPrenom()."\t".$row->getContactId()."\t".$row->getCategorieId()."\t".$row->getNomDetContact()."\t".$row->getPrenomDetContact()."\t".$row->getEmailContact()."\t".$row->getTelcontact()."\t".$row->getNomcateg()."\t".$row->getCodecateg()."\n";
+    // var_dump($excel);
 }
-
-header("Content-type: application/vnd.ms-excel");
-header("Content-disposition: attachment; filename=liste-clients.xls");
+ //die();
+ header("Content-type: application/vnd.ms-excel");
+ header("Content-disposition: attachment; filename=export_liste_licencie.xls");
 
 print $excel;
 exit;

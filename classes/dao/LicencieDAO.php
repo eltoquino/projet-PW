@@ -101,8 +101,38 @@ class LicencieDAO
             $stmt->execute([$id]);
             return true;
         } catch (PDOException $e) {
+            var_dump($e);
+            die();
             return false;
         }
     }
+
+    public function getByContactId($id)
+    {
+        try {
+            $query = "SELECT lc.id,lc.numero_licence,lc.nom,lc.prenom,lc.contact_id,lc.categorie_id,
+            ct.nom nomcontact,ct.prenom prenomcontact,ct.email emailcontact,ct.numero_tel telcontact,
+            categ.nom nomcateg,categ.code codecateg
+            FROM licencies lc  join contacts ct on lc.contact_id=ct.id  join categories categ on lc.categorie_id=categ.id
+             WHERE lc.contact_id = ?";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute([$id]);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($row) {
+                return new LicencieModel($row['id'],$row['numero_licence'], $row['nom'], $row['prenom'], $row['contact_id'], $row['categorie_id'],
+                $row['nomcontact'],$row['prenomcontact'], $row['emailcontact'], $row['telcontact'], $row['nomcateg'], $row['codecateg']);
+            } else {
+                return null;
+            }
+        } catch (PDOException $e) {
+            return null;
+        }
+    }
+
+
+
+
+
 }
 ?>

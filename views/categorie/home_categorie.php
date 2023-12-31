@@ -1,5 +1,12 @@
 <?php ob_start() ?>
 
+<?php 
+
+    if(!isset($_SESSION['email'])){
+        header("Location:index.php?page=login");
+    }
+?>
+
 <?php if (count($categories) > 0) : ?>
     <a   class="ti-control-backward"  href="index.php?page=template">Retour</a>
      
