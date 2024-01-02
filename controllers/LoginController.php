@@ -42,13 +42,26 @@ class LoginController {
 
             
       
-            //$nouvelLicencie = new LicencieModel(0,$numero_licencie, $nom,$prenom, $contact_id,$categorie_id,
-            //0,0,0,0,0,0);
-         // Var_dump($nouvelLicencie);
-          //die();
-          
+            
+        // var_dump(password_hash(trim($motdepasse), PASSWORD_DEFAULT));
+         // die();
+        // password_verify($password, $passwordHash);
+     //getEmail($email );
+     //var_dump($this->loginDAO->getEmail($email));
+    
 
-            if ($this->loginDAO->getConnexion($email,$motdepasse)) {
+     if($this->loginDAO->getEmail($email))
+     {
+       
+        $row=$this->loginDAO->getEmail($email);
+        $passwordHash=$row['mot_de_passe'];
+      //  var_dump($row);
+        //    var_dump($passwordHash);
+        //    var_dump()  ;
+      //  die();
+
+             // if ($this->loginDAO->getConnexion($email,password_hash($motdepasse, PASSWORD_DEFAULT))) {
+                if (password_verify($motdepasse, $passwordHash)) {
 
                 $_SESSION['email'] = $email;
                 header('Location:index.php?page=template');
@@ -57,6 +70,13 @@ class LoginController {
                // echo "Erreur lors de l'ajout du licencie.";
                 $error=true;
             }
+        }
+        else
+        {
+            $error=true;
+        }
+
+
         }
 
         include('views/login.php');

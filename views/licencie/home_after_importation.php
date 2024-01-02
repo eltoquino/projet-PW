@@ -7,6 +7,10 @@
     }
 ?>
 
+
+< 
+
+
 <?php if (count($licencies) > 0) : ?>
     <a   class="ti-control-backward"  href="index.php?page=template">Retour</a>
     <div class="card">
@@ -14,7 +18,11 @@
         <h5>Liste des licencies</h5>
        
         
-<a href="index.php?page=exporterlicencie&action=exporterLicencie"><h5>| Export</h5></a>
+        <?php if ($qstring): ?>
+            <div class="alert alert-danger" role="alert">
+                <?php echo $qstring ?>
+               </div>
+                <?php endif ?>
 
 
           <div class="card-header-right">

@@ -73,6 +73,10 @@ $controllers = [
 
 'exporterlicencie' => 'licencie/ExporterLicencieController',
 
+'importerlicencie' => 'licencie/ImporterLicencieController',
+
+'traiterimportationlicencie' => 'licencie/ImporterLicencieController',
+'home_after_importation' => 'licencie/ImporterLicencieController',
   
 'template' => 'TemplateController',
 ];

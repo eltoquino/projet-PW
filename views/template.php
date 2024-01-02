@@ -125,7 +125,7 @@
                           </div>
                       </div>
                       <a href="index.html">
-                          <img class="img-fluid" src="assets/images/logo.png" alt="Theme-Logo" />
+                          <img class="img-fluid" src="assets/images/logoC.png" alt="Theme-Logo" />
                       </a>
                       <a class="mobile-options waves-effect waves-light">
                           <i class="ti-more"></i>
@@ -190,9 +190,18 @@
                               <div class="main-menu-content">
                                   <ul>
                                       <li class="more-details">
-                                          <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
-                                          <a href="#!"><i class="ti-settings"></i>Settings</a>
-                                          <a href="index.php?page=logout"><i class="ti-layout-sidebar-left"></i>Logout</a>
+                                           
+                                     
+                                          <?php  if (isset($_SESSION['email'])) : ?>
+
+                                          <a href="index.php?page=logout"><i class="ti-layout-sidebar-left"></i>Se deconnecter</a>
+                                         
+                                          <?php else : ?>
+                                            
+                                            <a href="index.php?page=login"><i class="ti-layout-sidebar-left"></i>Se connecter</a>
+                                        <?php endif; ?>
+
+
                                       </li>
                                   </ul>
                               </div>
@@ -236,6 +245,12 @@
                               <a href="index.php?page=homelicencie" class="waves-effect waves-dark">
                                       <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                                       <span class="pcoded-mtext" data-i18n="nav.form-components.main">Licencie</span>
+                                      <span class="pcoded-mcaret"></span>
+                                  </a>
+
+                                  <a href="index.php?page=importerlicencie" class="waves-effect waves-dark">
+                                      <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                      <span class="pcoded-mtext" data-i18n="nav.form-components.main">Importer Licencie</span>
                                       <span class="pcoded-mcaret"></span>
                                   </a>
                               <a href="index.php?page=homeeducateur" class="waves-effect waves-dark">

@@ -30,7 +30,7 @@ class DeleteEducateurController
             }
         }
 
-        include('views/categorie/delete_categorie.php');
+        include('views/educateur/delete_educateur.php');
     }
 }
 

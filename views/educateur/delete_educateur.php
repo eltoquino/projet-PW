@@ -6,7 +6,7 @@
         header("Location:index.php?page=login");
     }
 ?>
-<h1>Supprimer un Contact</h1>
+<h1>Supprimer un Educateur</h1>
     <a href="index.php?page=homeeducateur">Retour à la liste des educateurs</a>
 
     <?php if ($educateur): ?>
@@ -15,7 +15,7 @@
             <input type="submit" value="Supprimer" class="btn btn-warning">
         </form>
     <?php else: ?>
-        <p>Le licencie n'a pas été trouvé.</p>
+        <p>educateur n'a pas été trouvé.</p>
     <?php endif; ?>
 
 <?php

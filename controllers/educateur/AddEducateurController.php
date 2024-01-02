@@ -45,7 +45,7 @@ class AddEducateurController {
             $email = $_POST['email'];
 			$password = $_POST['password'];
             $isAdmin =isset($_POST['isAdmin'])?1:0;
-            $confirpassword=$_POST['confirpassword'];
+           // $confirpassword=$_POST['confirpassword'];
             
             /*
             if($password!= $confirpassword)
@@ -57,8 +57,11 @@ class AddEducateurController {
                   //include('views/educateur/add_educateur.php'); 
                    exit();
             }*/
- 
-          
+            //Var_dump($password);
+            $password= password_hash(trim($password), PASSWORD_BCRYPT);
+              // Var_dump($password);
+            
+          // die();
             $nouvelEducateur = new EducateurModel($licencie_id, $email,$password, $isAdmin,0,0,0);
          // Var_dump($nouvelLicencie);
           //die();

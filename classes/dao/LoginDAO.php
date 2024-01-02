@@ -36,6 +36,32 @@ class LoginDAO
     }
 
 
+    public function getEmail($email )
+    {
+        try {
+          
+            $query = "SELECT * FROM educateurs WHERE email = ? and is_admin=1";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute([$email]);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+          
+            return $row;
+
+           // if ($row) {
+             //   return new CategorieModel($row['id'], $row['nom'], $row['code']);
+           // } else {
+           //     return null;
+           // }
+        } catch (PDOException $e) {
+
+            return null;
+        }
+    }
+
+
+
+
+
     
 public function getAdmin() {
     if(isset($_SESSION['email'])){

@@ -101,7 +101,7 @@
                         <form action="index?page=login&action=isLogin" class="md-float-material form-material"
                         method="post">
                             <div class="text-center">
-                                <img src="assets/images/logo.png" alt="logo.png">
+                                <img src="assets/images/logoC.png" alt="logoC.png">
                             </div>
                             <div class="auth-box card">
                                 <div class="card-block">

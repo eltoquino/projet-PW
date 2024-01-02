@@ -24,7 +24,7 @@ class AddContactController {
             $telephone = $_POST['telephone'];
       
             $nouvelContact = new ContactModel(0,$nom, $prenom,$email, $telephone);
-           Var_dump($nouvelContact);
+          // Var_dump($nouvelContact);
           
             if ($this->contactDAO->create($nouvelContact)) {
                 header('Location:index.php?page=homecontact');

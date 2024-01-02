@@ -95,5 +95,37 @@ class ContactDAO
             return false;
         }
     }
+
+
+    public function getVerifContact($nom,$prenom,$email,$telephone) {
+        
+            $a = [
+                'nom'     =>$nom,
+                'prenom'  =>  $prenom,
+                'email'  =>  $email,
+                'telephone'  =>  $telephone,
+                
+            ];
+            try {
+                $query = "SELECT * FROM contacts WHERE nom = ? AND prenom= ? AND email= ? AND numero_tel= ?  limit 1";  
+                $stmt = $this->pdo->prepare($query);
+                $stmt->execute([$nom,$prenom,$email,$telephone]);
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+              
+                 
+                return $row;
+                
+                
+                return $row;
+            } catch (PDOException $e) {
+                // GÃ©rer les erreurs de rÃ©cupÃ©ration ici
+                return [];
+            }
+        
+        }
+
+
+
+
 }
 ?>

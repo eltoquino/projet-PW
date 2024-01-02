@@ -20,6 +20,7 @@ class CategorieDAO
             return true;
         } catch (PDOException $e) {
 
+            var_dump($e);
             return false;
         }
     }
@@ -43,6 +44,27 @@ class CategorieDAO
             return null;
         }
     }
+
+
+    public function getByCode($code)
+    {
+        try {
+            $query = "SELECT * FROM Categories WHERE code = ?  limit 1";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute([$code]);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($row) {
+                return new CategorieModel($row['id'], $row['nom'], $row['code']);
+            } else {
+                return null;
+            }
+        } catch (PDOException $e) {
+
+            return null;
+        }
+    }
+
 
 
     public function getAll()
