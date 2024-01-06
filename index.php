@@ -81,10 +81,14 @@ $controllers = [
 'template' => 'TemplateController',
 ];
 
+ //var_dump($controllers);
 
 if (array_key_exists($page, $controllers)) {
  
 $controllerName = $controllers[$page];
+ //var_dump($controllerName);
+  //var_dump($page);
+ //die();
 
  if(strpos($controllerName, '/') !== false)
  {

@@ -101,5 +101,29 @@ class EducateurDAO
             return false;
         }
     }
+
+    public function getByEmail($email)
+    {
+        try {
+            $query = "select * FROM educateurs WHERE email = ?";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute([$email]);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($row) {
+                return true;
+            } else {
+                return false;
+            }
+
+
+        } catch (PDOException $e) {
+           
+            return false;
+        }
+    }
+
+
+
 }
 ?>

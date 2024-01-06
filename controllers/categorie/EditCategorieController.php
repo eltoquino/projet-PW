@@ -1,8 +1,12 @@
 <?php
 class EditCategorieController {
     private $categorieDAO;
+    private $educateurDAO; 
+    private $contactDAO ;
+    private  $loginDAO;
+    private $licencieDAO;
 
-    public function __construct(CategorieDAO $categorieDAO) {
+    public function __construct($categorieDAO,$licencieDAO,$contactDAO,$educateurDAO,$loginDAO) {
         $this->categorieDAO = $categorieDAO;
     }
 

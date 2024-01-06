@@ -1,7 +1,10 @@
 <? ob_start() 
  
 ?>
+ <?php
 
+ 
+ ?>
 
 <?php 
 
@@ -23,11 +26,12 @@
                                                                             </div>
                                                                             <div class="card-block">
 
-                                         <?php if ($message): ?>
-                                        <div class="alert alert-danger" role="alert">
-                                            Cet educateur est déja ajouté
-                                        </div>
-                                      <?php endif ?>
+                                         <?php if (isset($_GET['ms']))
+                                         echo '<div class="alert alert-danger" role="alert">
+                                                '.$_GET['ms'].'
+                                            </div>';
+                                             ?>
+                                         
 
                                                                             
     <form action="index.php?page=addeducateur&action=addEducateur" method="post">
@@ -59,6 +63,15 @@
                 placeholder="Mot de passe">
                </div>
         </div>
+
+        <div class="form-group row">
+               <label class="col-sm-2 col-form-label">Confirmer Mot de passe :</label>
+             <div class="col-sm-10">
+                <input type="password" class="form-control form-control-normal" id="confirmerpassword" name="confirmerpassword" required
+                placeholder="Confirmation Mot de passe">
+               </div>
+        </div>
+        
          
         <div class="form-group row">
                <label class="col-sm-2 col-form-label">Est admin :</label>

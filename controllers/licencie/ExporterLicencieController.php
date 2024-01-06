@@ -18,15 +18,9 @@ class ExporterLicencieController
         // Récupérer la liste de toutes les licencies depuis le modèle
         $licencies = $this->licencieDAO->getAll();
 
-       // lc.id,lc.numero_licence,lc.nom,lc.prenom,lc.contact_id,lc.categorie_id,
-         //   ct.nom nomcontact,ct.prenom prenomcontact,ct.email emailcontact,ct.numero_tel telcontact,
-           // categ.nom nomcateg,categ.code codecateg
+       
 
-
-
-        //$newReservations = $select->fetchAll();
-       //var_dump($licencies);
-       //die();
+ 
 
 $excel = "";
 $excel .=  "Id\tnumero_licence\tNom\tPrénom\tidcontact\tidcategorie\tnomcontact\tprenomcontact\temailcontact\ttelcontact\tNomCategorie\tCodeCategorie\n";

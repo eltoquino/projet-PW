@@ -43,21 +43,39 @@ class AddEducateurController {
 
             $licencie_id = $_POST['licencie_id'];
             $email = $_POST['email'];
-			$password = $_POST['password'];
+			     $password = $_POST['password'];
             $isAdmin =isset($_POST['isAdmin'])?1:0;
-           // $confirpassword=$_POST['confirpassword'];
-            
-            /*
-            if($password!= $confirpassword)
+            $confirmerpassword=$_POST['confirmerpassword'];
+          //var_dump(ltrim($confirmerpassword) !==trim($password));
+          //die();
+           
+            if((ltrim($confirmerpassword) !=trim($password)))
             {
-                $message="Les mots de passe doit etre identique";
-                //  var_dump($message);
-                 // die();
-                header('Location:index.php?page=addeducateur');
-                  //include('views/educateur/add_educateur.php'); 
+              $_SESSION['message'] = 'Les mots de passe doivent etre identique';
+                $error="Les mots de passe doivent etre identique";
+                 
+                 header("Location:index.php?page=addeducateur&ms=$error");
+                  //include('views/educateur/add_educateur.php');
                    exit();
-            }*/
-            //Var_dump($password);
+                    
+            } 
+
+
+
+            $educEmail = $this->educateurDAO->getByEmail(trim($email));
+          
+            if($educEmail)
+            {
+              $error="Cet email est déja pris en compte,veuillez bien changer de mail";
+             // $_SESSION['message'] = 'Cet educateur est déja ajouté';
+              
+             header("Location:index.php?page=addeducateur&ms=$error");
+             exit();
+                
+            }
+
+
+        
             $password= password_hash(trim($password), PASSWORD_BCRYPT);
               // Var_dump($password);
             
@@ -69,10 +87,10 @@ class AddEducateurController {
           $educa = $this->educateurDAO->getById($licencie_id);
           if($educa!=null)
           {
-            $error=" educateur existe deja";
+            $error="Cet educateur existe deja";
           $_SESSION['message'] = 'Cet educateur est déja ajouté';
             
-           header('Location:index.php?page=addeducateur');
+           header("Location:index.php?page=addeducateur&ms=$error");
            
         //  include('views/educateur/add_educateur.php'); 
              // exit();

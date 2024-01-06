@@ -8,7 +8,7 @@
 ?>
 
 <h1>Modifier un educateur</h1>
-<a href="index.php?page=homeeducateur">Retour à la liste des contacts</a>
+<a href="index.php?page=homeeducateur">Retour à la liste des educateurs</a>
 
 <?php if ($educateur) : ?>
     <form action="index.php?action=editEducateur&page=editeducateur&id=<?php echo $educateur->getId(); ?>" method="post">
